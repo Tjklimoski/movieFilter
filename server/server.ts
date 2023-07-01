@@ -22,11 +22,7 @@ app.use(cors({
 app.get('/popular-movies', (req, res) => {
 
   //get request to TMDB for their list of popular movies
-  TMDBApi.get('/movie/popular', {
-    params: {
-      api_key: process.env.API_KEY
-    }
-  })
+  TMDBApi.get('/movie/popular')
     .then(res => res.data.results)
     .then(results => res.send(results))
     .catch(err => res.status(400).send())
