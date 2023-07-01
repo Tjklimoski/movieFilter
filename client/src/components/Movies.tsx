@@ -2,6 +2,19 @@ import Movie from './Movie';
 
 export default function Movies() {
   return (
-    <Movie />
+    <div className='movies-wrapper'>
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+      <Movie />
+    </div>
   )
 }
