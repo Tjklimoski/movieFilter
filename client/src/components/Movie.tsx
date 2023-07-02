@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 
 type MovieProps = {
   title: string
@@ -12,10 +13,10 @@ export default function Movie({ title, imgPath, avgRating }: MovieProps) {
   const imgUrl = `${baseUrl}${size}${imgPath}`
 
   return (
-    <div className="movie">
+    <motion.div layout animate={{ opacity: 1}} className="movie">
       <div className="movie-title">{title}</div>
       <img src={imgUrl} alt={`${title} poster`} />
       <div className="rating" data-rating={avgRating > 7.5 ? 'high' : avgRating > 5 ? 'medium' : 'low'}>{avgRating}</div>
-    </div>
+    </motion.div>
   )
 }
