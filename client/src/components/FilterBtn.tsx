@@ -15,6 +15,7 @@ export default function FilterBtn({ updateGenre, currentGenre, genreName, id }: 
       className="btn" 
       onClick={() => updateGenre(id)} 
       data-active={ active ? "true" : "false"}
+      disabled={active}
     >
       {genreName}
     </button>
