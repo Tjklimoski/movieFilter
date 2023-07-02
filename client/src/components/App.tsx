@@ -3,12 +3,18 @@ import Movies from "./Movies";
 import useTMDB from "../hooks/useTMDB";
 
 function App() {
-  useTMDB();
+  const [movies, loading, error] = useTMDB();
 
   return <>
-    <Filters />
-    <Movies />
+    {loading && <h1>LOADING</h1>}
+    {error && <p>{error}</p>}
+    {!loading &&
+    <>
+      <Filters />
+      <Movies movies={movies}/>
+    </>
+    }
   </>
 }
 
-export default App
+export default App;

@@ -23,7 +23,7 @@ const api = axios.create({
 })
 
 export default function useTMDB() {
-  const [movies, setMovies] = useState<MovieData>()
+  const [movies, setMovies] = useState<MovieData[]>([] as MovieData[])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
 
@@ -35,6 +35,6 @@ export default function useTMDB() {
       .finally(() => setLoading(false))
   }, [])
 
-  return [movies, loading, error]
+  return [movies, loading, error] as [MovieData[], typeof loading, typeof error]
 
 }
