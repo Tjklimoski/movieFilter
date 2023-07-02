@@ -92,9 +92,11 @@ body {
 
 .movie .rating {
   position: absolute;
+  width: 2.5rem;
   aspect-ratio: 1;
   display: grid;
   align-content: center;
+  justify-content: center;
   font-weight: 700;
   font-size: 1rem;
   bottom: 15px;
