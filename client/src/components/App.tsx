@@ -9,25 +9,23 @@ function App() {
   const [genre, setGenre] = useState(0);
   const filteredMovies = useMemo(() => {
     if (genre === 0) return movies;
-    return movies.filter(movie => movie.genre_ids.includes(genre))
+    return movies.filter((movie) => movie.genre_ids.includes(genre));
   }, [genre, movies]);
 
   function updateGenre(genre: number) {
-    setGenre(genre)
+    setGenre(genre);
   }
 
-  return <>
-    <div className="page-wrapper">
-      {loading && <h3>LOADING...</h3>}
-      {error && <p className="error-msg">{error}</p>}
-      {!loading &&
-      <>
-        <Filters updateGenre={updateGenre} currentGenre={genre}/>
-        <Movies movies={filteredMovies}/>
-      </>
-      }
-    </div>
-  </>
+  return (
+    <>
+      <div className="page-wrapper">
+        <Filters updateGenre={updateGenre} currentGenre={genre} />
+        {loading && <h3>LOADING...</h3>}
+        {error && <p className="error-msg">{error}</p>}
+        {!loading && <Movies movies={filteredMovies} />}
+      </div>
+    </>
+  );
 }
 
 export default App;
