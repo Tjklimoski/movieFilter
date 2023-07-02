@@ -17,14 +17,16 @@ function App() {
   }
 
   return <>
-    {loading && <h1>LOADING...</h1>}
-    {error && <p className="error-msg">{error}</p>}
-    {!loading &&
     <div className="page-wrapper">
-      <Filters updateGenre={updateGenre} currentGenre={genre}/>
-      <Movies movies={filteredMovies}/>
+      {loading && <h3>LOADING...</h3>}
+      {error && <p className="error-msg">{error}</p>}
+      {!loading &&
+      <>
+        <Filters updateGenre={updateGenre} currentGenre={genre}/>
+        <Movies movies={filteredMovies}/>
+      </>
+      }
     </div>
-    }
   </>
 }
 
