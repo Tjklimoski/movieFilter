@@ -13,9 +13,9 @@ export default function Movie({ title, imgPath, avgRating }: MovieProps) {
 
   return (
     <div className="movie">
-      <span className="movie-title">{title}</span>
+      <div className="movie-title">{title}</div>
       <img src={imgUrl} alt={`${title} poster`} />
-      <span>{avgRating}</span>
+      <div className="rating" data-rating={avgRating > 7.5 ? 'high' : avgRating > 5 ? 'medium' : 'low'}>{avgRating}</div>
     </div>
   )
 }

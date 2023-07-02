@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --bg-clr: #dedede;
+  --primary-clr: #ededed;
+}
+
+body {
+  background-color: var(--bg-clr);
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.page-wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 25px auto;
+}
+
+#filter-btns {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+#filter-btns .btn {
+  --btn-clr: rgb(44, 76, 119);
+  --transition-timing: 200ms;
+  color: var(--btn-clr);
+  background-color: transparent;
+  outline: none;
+  padding: .25rem .5rem;
+  border: 1px solid var(--btn-clr);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color var(--transition-timing) ease-in-out, color var(--transition-timing) ease-in-out;
+}
+
+#filter-btns .btn:hover {
+  background: var(--btn-clr);
+  color: var(--primary-clr);
+}
+
+#filter-btns .btn[data-active="true"] {
+  background: var(--btn-clr);
+  color:var(--primary-clr);
+  cursor: auto;
+}
+
+.movies-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.movie {
+  position: relative;
+  padding: .5rem;
+  background-color: var(--primary-clr);
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie .movie-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .75rem;
+  margin-bottom: .5rem;
+
+  /* To have text ellipsis instead of going to 2nd line */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: .25rem;
+}
+
+.movie .rating {
+  position: absolute;
+  aspect-ratio: 1;
+  display: grid;
+  align-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  bottom: 15px;
+  right: 15px;
+  padding: .4rem;
+  background-color: var(--rating-color, var(--primary-clr));
+  border: 3px solid var(--primary-clr);
+  border-radius: 2rem;
+}
+
+[data-rating="high"] {
+  --rating-color: rgb(119, 214, 119);
+}
+
+[data-rating="medium"] {
+  --rating-color: rgb(227, 230, 86);
+}
+
+[data-rating="low"] {
+  --rating-color: rgb(221, 101, 101);
+}

@@ -9,10 +9,10 @@ function App() {
     {loading && <h1>LOADING</h1>}
     {error && <p>{error}</p>}
     {!loading &&
-    <>
+    <div className="page-wrapper">
       <Filters />
       <Movies movies={movies}/>
-    </>
+    </div>
     }
   </>
 }
