@@ -58,6 +58,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  grid-row-gap: 1.5rem;
 }
 
 .movie {
@@ -113,4 +114,8 @@ body {
 
 [data-rating="low"] {
   --rating-color: rgb(221, 101, 101);
+}
+
+.error-msg {
+  color: rgb(221, 101, 101);
 }
